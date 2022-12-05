@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, CardTitle, Button, CardSubtitle } from 'reactstrap';
 import ComponentCard from '../components/ComponentCard';
-import {fun1} from "./editfunction"
+import { Link, useLocation } from "react-router-dom";
 
 const About = () => {
   const SandwichPair = [
@@ -51,9 +51,6 @@ const About = () => {
       icon: 'bi-shield-check',
     },
   ];
-  const handleClick = (title) => {
-    fun1(title)
-  }
   return (
     <Row>
       <Col>
@@ -90,8 +87,10 @@ const About = () => {
                 <div>
                   <i className={`bi ${feature.icon} text-primary fs-2`} />
 
-                  <CardTitle tag="h4" className="my-3" onClick={e=>{handleClick(feature.title)}}>
-                    {feature.title}
+                  <CardTitle tag="h4" className="my-3">
+                    <Link to={"/starter"}>
+                    <span >{feature.title}</span>
+                  </Link>
                   </CardTitle>
                   <CardSubtitle className="text-muted col-10">{feature.desc}</CardSubtitle>
                 </div>
